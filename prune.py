@@ -5,13 +5,15 @@ def prune_rows_without_hours(input_csv, output_csv='pruned.csv'):
         reader = csv.reader(infile)
         writer = csv.writer(outfile)
 
+        # Write the header to the output CSV
+        header = next(reader)
+        writer.writerow(header)
 
         for row in reader:
             # Check if the row contains numeric values in columns representing hours
             if any(field.replace(',', '').replace('.', '').isdigit() for field in row[2:]):
                 # Write the row to the output CSV
                 writer.writerow(row)
-
 
     print(f"Pruned CSV saved to {output_csv}")
 

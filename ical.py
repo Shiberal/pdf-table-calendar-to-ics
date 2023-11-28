@@ -16,19 +16,20 @@ def csv_to_ics(input_csv, output_ics='output.ics'):
             #replace , with : to get  9,00 to 9:00
             start_time = datetime.strptime(row[2].replace(",",":"), '%H:%M')
             end_time = datetime.strptime(row[3].replace(",",":"), '%H:%M')
-            duration = row[4]
             subject = row[5]
-            location = row[6]
-            organizer = row[7]
+            location = row[7]
+            organizer = row[8]
+
+            #replace in event date the day
+            #event_date = event_date.replace(day=event_date.day-1)
 
             # Create 
             event = Event()
-            event.name = subject;
-            event.location = location;
+            event.name = subject + " con " +organizer;
             event.organizer = organizer;
-            print (start_time.hour)
-            event.begin = event_date.replace(hour=start_time.hour, minute=start_time.minute)
-            event.end = event_date.replace(hour=end_time.hour, minute=end_time.minute)
+            event.location = location;
+            event.begin = event_date.replace(hour=(start_time.hour -1), minute=start_time.minute)
+            event.end = event_date.replace(hour=(end_time.hour-1), minute=end_time.minute)
             cal.events.add(event)
             
     # Save the calendar to an iCalendar file
