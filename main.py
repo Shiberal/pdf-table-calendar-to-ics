@@ -1,7 +1,8 @@
 from Calendario import Calendario
 from Giorno import Lezione
 import tabula
-import pandas as pd
+import pandas as pd 
+from pandas import DataFrame
 
 def parse_pdf (filename):
     file = "./" + filename
@@ -38,11 +39,11 @@ def parse_excel (filename, header):
     
     return dataframe
 
-def put_in_calendario (dataframe, calendario):
+def put_in_calendario (dataframe:DataFrame, calendario):
     valid_rows = dataframe[
         (dataframe.iloc[:, 0] != "Domenica") &
         (dataframe.iloc[:, 0] != "Sabato") &
-        (dataframe.iloc[:, 7].notna()) &
+        (dataframe.iloc[:, 7].notna()) |
         (dataframe.iloc[:, 8].notna())
     ]
 
