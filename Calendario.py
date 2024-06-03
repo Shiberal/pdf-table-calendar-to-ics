@@ -63,6 +63,8 @@ class Calendario:
 
                 date_start = date.replace(hour=start_time.hour-1, minute=start_time.minute)
                 date_end = date.replace(hour=end_time.hour-1, minute=end_time.minute)
+
+                
                 e = Event()
                 e.name = lezione.materia
                 e.description = f" {lezione.unita} \ncon {lezione.professore}" 

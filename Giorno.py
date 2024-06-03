@@ -12,7 +12,10 @@ class Lezione:
         self.ora_inizio = ora_inizio
         self.ora_fine = ora_fine
         self.unita = unita
-        self.materia = materia
+        if materia.lower() == "nan":
+            self.materia = unita
+        else:
+            self.materia = materia
         self.professore = professore
 
     def __str__ (self):

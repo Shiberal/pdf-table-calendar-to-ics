@@ -40,7 +40,7 @@ def put_in_calendario (dataframe, calendario):
         data = row[1]
         if data[0] == "Domenica" or data[0] == "Sabato":
             continue
-        if str(data[7]).lower() == "nan" or str( data[8]).lower() == "nan" or data[7] == None or data[8] == None:
+        if str(data[7]).lower() == "nan" or str( data[8]).lower() == "nan" and data[7] == None and data[8] == None:
             continue
         for i in range(len(data)):
             #cleaning data
