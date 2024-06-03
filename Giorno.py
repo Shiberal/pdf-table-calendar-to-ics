@@ -8,7 +8,7 @@ class Lezione:
         self.ora_inizio = ora_inizio
         self.ora_fine = ora_fine
         self.unita = unita
-        if len( materia.lower()) <= 5:
+        if materia.lower() == " ":
             self.materia = unita
         else:
             self.materia = materia
