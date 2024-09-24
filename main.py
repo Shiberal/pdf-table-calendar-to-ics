@@ -76,7 +76,8 @@ def clean_input(inputText): #removes special characters, and stuff that can scre
 if __name__ == "__main__":
     header = ['nan', 'Data', 'Orario inizio', 'Orario fine', 'Ore formazion e', 'Ore Gruppi', 'Ore COD', 'Unità formativa', 'Materia', 'Sede', 'Professore']
     # dataframeA = parse_pdf("input.pdf") 
-    dataframe = parse_excel("calendario.xlsx", header)
+    # dataframe = parse_excel("calendario.xlsx", header)
+    dataframe = parse_pdf("input2.pdf")
     
 
 
