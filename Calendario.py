@@ -107,8 +107,10 @@ class Calendario:
         #remove Timestamp, the ( ) and the 00:00:00
         date = str(date).replace("Timestamp", "").replace("(", "").replace(")", "").replace("00:00:00", "")
         print (date)
-        date = date.split("-")
+        date = ( len(date.split("-")) > 1 ) and date.split("-") or date.split("/")
+        
+        print (date, " :to: " , (int(date[0]), int(date[1]), int(date[2]))) 
 
-        date = datetime(int(date[0]), int(date[1]), int(date[2]))
+        date = datetime(int(date[2]), int(date[1]), int(date[0]))
 
         return date
